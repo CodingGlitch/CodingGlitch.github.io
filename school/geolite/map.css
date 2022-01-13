@@ -26,10 +26,13 @@ input:valid {
 }
 
 p {
-  margin-top: 10vh;
-  margin-left: 39vw;
+  margin-top: 0vh;
+  margin-left: 45vw;
   opacity: 0;
   transition: 200ms;
+  border-style: solid;
+  border-color: #00000000;
+  display: inline-block;
 }
 
 #updateButton {
@@ -45,6 +48,8 @@ p {
 p.show {
   opacity: 1;
   transition: 200ms;
+  border-style: solid;
+  border-color: #FF000099;
 }
 
 button {

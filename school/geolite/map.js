@@ -69,11 +69,13 @@ console.log("\n ██████╗ ██╗     ██╗██████�
       window.location = url; //Redirect to the new url
     }
     else {
-      jQuery("").addClass('shown');
+      jQuery("body > p").addClass('show');
       setTimeout(function() {
-        jQuery("p").removeClass('shown');
+        jQuery(".show").removeClass('show');
+        console.log("shown done");
       }, 2000);
     }
+    console.log("clicked");
   }
 
   jQuery("body").on("click", "#updateButton", function() {
