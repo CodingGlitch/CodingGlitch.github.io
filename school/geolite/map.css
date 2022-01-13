@@ -1,7 +1,7 @@
 #map {
   height : 50vh;
   width : 50vw;
-  display: block;
+  display: relative;
   top: 3vh;
   left: 45vh;
   border-style: solid solid double solid;

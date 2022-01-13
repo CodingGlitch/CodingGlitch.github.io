@@ -72,7 +72,6 @@ console.log("\n ██████╗ ██╗     ██╗██████�
       jQuery("").addClass('shown');
       setTimeout(function() {
         jQuery("p").removeClass('shown');
-
       }, 2000);
     }
   }
