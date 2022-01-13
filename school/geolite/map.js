@@ -21,7 +21,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-const marker = L.marker([0, 0], 13).addTo(map);
+const marker = L.marker([latitude, longitude], 13).addTo(map);
 
 //Update the location by generating a new url and redirecting
 function newLoc() {
