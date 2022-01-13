@@ -1,0 +1,204 @@
+/*------------------------------------------------------------------------------
+	WEB : page design
+------------------------------------------------------------------------------*/
+
+
+
+/*==============================
+	Layout
+==============================*/
+
+/* Wrapper */
+.wrapper {
+	/* width: 1000px; */
+	min-height: 100vh;
+	margin: 0px auto 0px auto;
+	/* background-color: #FFFFCC; */
+}
+
+
+
+/*==============================
+	Style
+==============================*/
+
+/* Set font */
+* {
+	font-family: "Open Sans", "Arial", "Helvetica", Palatino, sans-serif;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+/* Body */
+body {
+	background-image: url("../images/top.png"), url("../images/bottom.png");
+	background-repeat: no-repeat;
+	background-position: center top, center bottom;
+	background-size: contain, contain;
+}
+
+header img {
+	width: 10vw;
+	border-radius: 100vw;
+}
+
+header h2 {
+	margin: 0 0 5vw 0;
+	font-size: 4vw;
+	font-weight: lighter;
+	color: #00000011;
+}
+
+header ul li {
+	margin: 0.5vw;
+	color: #00000055;
+	font-style: italic;
+}
+
+
+section {
+	margin: 10vh 10vw 0 40vw;
+	padding: 0 0 0 3vw;
+
+}
+
+section h2.selected {
+	margin: 0 0 -4vw -6vw;
+	padding: 0;
+	color: #0000000A;
+	font-weight: bolder;
+	font-size: 5vw;
+	font-style: italic;
+}
+section h2.selected::first-letter {
+	color: #00000005;
+	font-size: 8vw;
+}
+
+section h2 {
+	margin: 3vw 0 0 0;
+	padding: 0;
+	color: #00000033;
+	font-weight: bolder;
+	font-size: 2vw;
+	font-style: italic;
+	cursor: pointer;
+	transition: 1s;
+}
+
+section article {
+	display: none;
+	margin: 0 0 0 5vw;
+	padding: 3vw 0 2vw 5vw;
+	border-style: none none none solid;
+	border-width: 1px;
+	border-color: #00000011;
+}
+
+section ul {
+	padding: 0 0 0 2vw;
+}
+
+.selectable li {
+	cursor: pointer;
+}
+
+section li {
+	margin: 0.5vw;
+	padding: 0.5vw 1vw 0.5vw 1vw;
+	border-radius: 100vw;
+}
+
+section li.selected {
+	background-color: #00000011;
+}
+
+section h3 {
+	color: #00000099;
+	font-weight: bolder;
+	font-size: 1vw;
+}
+
+.qualities li {
+	display: none;
+}
+
+.qualities li.selected {
+	display: inline-block;
+	vertical-align: top;
+}
+
+
+/*==============================
+	Classes
+==============================*/
+
+
+
+/*==============================
+	Responsive design
+==============================*/
+
+/* Media query : mobile + tablet */
+@media (max-width: 1200px) {
+
+	header {
+		padding: 2vh 10vw 2vh 10vw;
+	}
+
+	header img {
+		display: inline-block;
+		vertical-align: top;
+		width: 150px;
+	}
+
+	header h2 {
+		display: inline-block;
+		vertical-align: top;
+		margin: 0 0 0 5vw;
+		color: #00000033;
+		font-size: 50px;
+	}
+
+	section {
+		margin: 5vw 10vw 0 10vw;
+	}
+
+	section h2 {
+		font-size: 30px;
+	}
+	section h2.selected {
+		font-size: 80px;
+	}
+	section h2.selected::first-letter {
+		font-size: 100px;
+	}
+
+	section h3 {
+		font-size: 20px;
+	}
+}
+
+
+
+/* Media query : laptop */
+@media (min-width: 1200px) {
+
+	header {
+		position: fixed;
+		top: 20vh;
+		left: 10vw;
+		width: 20vw;
+		padding: 2vw 5vw 2vw 0;
+		border-style: none solid none none;
+		border-width: 1px;
+		border-color: #00000011;
+		text-align: right;
+	}
+
+
+
+}
