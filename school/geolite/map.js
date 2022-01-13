@@ -1,60 +1,83 @@
+$(document).ready(function () {
 
 
-//Get the longitude and latitude from the url.
-
-var longitude = 0;
-var latitude = 0;
-const urlQuery = window.location.search;
-const urlParams = new URLSearchParams(urlQuery);
-
-if (urlParams.has('longitude')) {
-  longitude = parseFloat(urlParams.get('longitude'));
-}
-if (urlParams.has('latitude')) {
-  latitude = parseFloat(urlParams.get('latitude'));
-}
-console.log(longitude)
-console.log(latitude)
+//Mine
+console.log("\n ██████╗ ██╗     ██╗████████╗ ██████╗██╗  ██╗     ██╗███████╗\n██╔════╝ ██║     ██║╚══██╔══╝██╔════╝██║  ██║     ██║██╔════╝\n██║  ███╗██║     ██║   ██║   ██║     ███████║     ██║███████╗\n██║   ██║██║     ██║   ██║   ██║     ██╔══██║██   ██║╚════██║\n╚██████╔╝███████╗██║   ██║   ╚██████╗██║  ██║╚█████╔╝███████║\n ╚═════╝ ╚══════╝╚═╝   ╚═╝    ╚═════╝╚═╝  ╚═╝ ╚════╝ ╚══════╝\n");
 
 
-const map = L.map('map').setView([latitude, longitude], 13)
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+  //Get the longitude and latitude from the url.
+
+
+
+  var longitude = 0;
+  var latitude = 0;
+  const urlQuery = window.location.search;
+  const urlParams = new URLSearchParams(urlQuery);
+
+  if (urlParams.has('longitude')) {
+    longitude = parseFloat(urlParams.get('longitude'));
+  }
+  if (urlParams.has('latitude')) {
+    latitude = parseFloat(urlParams.get('latitude'));
+  }
+  console.log(longitude)
+  console.log(latitude)
+
+
+  const map = L.map('map').setView([latitude, longitude], 13)
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+  }).addTo(map);
 
-const marker = L.marker([latitude, longitude], 13).addTo(map);
+  const marker = L.marker([latitude, longitude], 13).addTo(map);
 
-//Update the location by generating a new url and redirecting
-function newLoc() {
-  var url = window.location.href; //Get the current url
-  var urlParts = url.split('/'); //Split it into parts
-  const longitudeInput = document.getElementById('longitude');
-  const latitudeInput = document.getElementById('latitude');
-  const longitude = parseFloat(longitudeInput.value);
-  const latitude = parseFloat(latitudeInput.value);
+  //Update the location by generating a new url and redirecting
+  function newLoc() {
+    var url = window.location.href; //Get the current url
+    var urlParts = url.split('/'); //Split it into parts
+    const longitudeInput = document.getElementById('longitude');
+    const latitudeInput = document.getElementById('latitude');
+    const longitude = parseFloat(longitudeInput.value);
+    const latitude = parseFloat(latitudeInput.value);
 
-  //Check if the values entered are correct
-  var correct = true;
+    //Check if the values entered are correct
+    var correct = true;
 
-  if (isNaN(longitude)) {
-    alert('invalid longitude');
-    correct = false;
-  }
-
-  if (isNaN(latitude)) {
-    alert('invalid latitude');
-    correct = false;
-  }
-
-  if (correct) {
-    urlParts[urlParts.length-1] = "map.html?longitude="+longitude.toString()+"&latitude="+latitude.toString();
-    url = ""
-    for (var i = 0; i < urlParts.length; i++) {
-      url = url + urlParts[i]; //Rebuild the url with the new params
-      if (i < urlParts.length-1) {
-        url = url + "/";
-      }
+    //Check if input is valid
+    if (!longitudeInput.validity || !latitudeInput.validity) {
+      correct = false
     }
-    window.location = url; //Redirect to the new url
+
+    if (isNaN(longitude)) {
+      correct = false;
+    }
+
+    if (isNaN(latitude)) {
+      correct = false;
+    }
+
+    if (correct) {
+      urlParts[urlParts.length-1] = "map.html?longitude="+longitude.toString()+"&latitude="+latitude.toString();
+      url = ""
+      for (var i = 0; i < urlParts.length; i++) {
+        url = url + urlParts[i]; //Rebuild the url with the new params
+        if (i < urlParts.length-1) {
+          url = url + "/";
+        }
+      }
+      window.location = url; //Redirect to the new url
+    }
+    else {
+      jQuery("").addClass('shown');
+      setTimeout(function() {
+        jQuery("p").removeClass('shown');
+
+      }, 2000);
+    }
   }
-}
+
+  jQuery("body").on("click", "#updateButton", function() {
+    newLoc();
+  });
+});

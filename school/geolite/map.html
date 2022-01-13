@@ -10,16 +10,18 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
+    <script src='jquery-3.5.1.min.js'></script>
 
   </head>
   <body>
 
     <div id='map'></div>
     <div class='inputs'>
-      <input type='text' placeholder='longitude' id='longitude'>
-      <input type='text' placeholder='latitude' id='latitude'>
-      <button id='updateButton' onclick='newLoc()'>Update location</button>
+      <input type='text' placeholder='longitude' id='longitude' pattern='\d*' required>
+      <input type='text' placeholder='latitude' id='latitude' pattern='\d*' required>
+      <p id="updateButton">Update location<p>
     </div>
+    <p>Please type in only numbers in the input form</p>
     <script src='map.js'></script>
 
   </body>
