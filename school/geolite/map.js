@@ -1,6 +1,7 @@
 
 
 //Get the longitude and latitude from the url.
+
 var longitude = 0;
 var latitude = 0;
 const urlQuery = window.location.search;
