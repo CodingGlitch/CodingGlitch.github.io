@@ -17,8 +17,8 @@
 
     <div id='map'></div>
     <div class='inputs'>
-      <input type='text' placeholder='longitude' id='longitude' pattern='\d*' required>
-      <input type='text' placeholder='latitude' id='latitude' pattern='\d*' required>
+      <input type='number' placeholder='longitude' id='longitude' min='-180' max='180' step='0.0001'required>
+      <input type='number' placeholder='latitude' id='latitude' min='-180' max='180' step='0.0001' required>
       <p id="updateButton">Update location<p>
     </div>
     <p>Please type in only numbers in the input form</p>
