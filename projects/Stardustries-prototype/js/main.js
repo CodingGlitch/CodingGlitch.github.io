@@ -4,18 +4,21 @@ $(document).ready( function () {
 console.log("██████╗ ██████╗ ██╗   ██╗██╗   ██╗███████╗\n██╔══██╗██╔══██╗██║   ██║╚██╗ ██╔╝██╔════╝\n██████╔╝██████╔╝██║   ██║ ╚████╔╝ ███████╗\n██╔═══╝ ██╔══██╗██║   ██║  ╚██╔╝  ╚════██║\n██║     ██║  ██║╚██████╔╝   ██║   ███████║\n╚═╝     ╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚══════╝")
 
 let company = [
-  ["Exotrails", "Aérospatial", "Une description", "assets/logo_exotrail_full.e32341e.png", "une.adresse@mail.com", "www.monsite.com"],
-  ["SpaceDreams", "Aérospatial", "Une description", "assets/SpaceDreamslogo.webp", "une.adresse@mail.com", "www.monsite.com"],
-  ["Venture", "Aérospatial", "Une description", "assets/VOS log.webp", "une.adress@mail.com", "www.monsite.com"],
-  ["U_Space", "Aérospatial", "Une description", "assets/Uspacelogo.webp", "une.adresse@mail.com", "www.monsite.com"],
-  ["Unseenlabs", "Aérospatial", "Une description", "assets/unseenlabslogo.svg", "une.adresse@mail.com", "www.monsite.com"],
-  ["Share my space", "Aérospatial", "Une description", "assets/Share MSPlogo.webp", "une.adresse@mail.com", "www.monsite.com"],
-  ["COMAT", "Aérospatial", "Une description", "assets/COMATlogo.webp", "une.adresse@mail.com", "www.monsite.com"]
+  ["Exotrails", "Secteur 1", "Une description", "assets/logo_exotrail_full.e32341e.png", "une.adresse@mail.com", "www.monsite.com"],
+  ["SpaceDreams", "Secteur 1", "Une description", "assets/SpaceDreamslogo.webp", "une.adresse@mail.com", "www.monsite.com"],
+  ["Venture", "Secteur 2", "Une description", "assets/VOS log.webp", "une.adress@mail.com", "www.monsite.com"],
+  ["U_Space", "Secteur 3", "Une description", "assets/Uspacelogo.webp", "une.adresse@mail.com", "www.monsite.com"],
+  ["Unseenlabs", "Secteur 4", "Une description", "assets/unseenlabslogo.svg", "une.adresse@mail.com", "www.monsite.com"],
+  ["Share my space", "Secteur 5", "Une description", "assets/Share MSPlogo.webp", "une.adresse@mail.com", "www.monsite.com"],
+  ["COMAT", "Secteur 2", "Une description", "assets/COMATlogo.webp", "une.adresse@mail.com", "www.monsite.com"]
 ];
 
 let sectors = [
-  ["Aérospatial", "planet2.png"],
-  [""]
+  ["Secteur 1", "planet2.png"],
+  ["Secteur 2", "planet0.png"],
+  ["Secteur 3", "planet1.png"],
+  ["Secteur 4", "planet3.png"],
+  ["Secteur 5", "planet4.png"]
 ];
 
 jQuery(".sidebar .logo").hide()
