@@ -4,16 +4,18 @@ $(document).ready( function () {
 console.log("██████╗ ██████╗ ██╗   ██╗██╗   ██╗███████╗\n██╔══██╗██╔══██╗██║   ██║╚██╗ ██╔╝██╔════╝\n██████╔╝██████╔╝██║   ██║ ╚████╔╝ ███████╗\n██╔═══╝ ██╔══██╗██║   ██║  ╚██╔╝  ╚════██║\n██║     ██║  ██║╚██████╔╝   ██║   ███████║\n╚═╝     ╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚══════╝")
 
 let company = [
-  ["Exotrails", "Aérospatial", "Description", "assets/logo_exotrail_full.e32341e.png", "l.addr@mail.com", "monsite.com"],
-  ["SpaceDreams", "Aérospatial", "Canart", "assets/SpaceDreamslogo.webp"]
+  ["Exotrails", "Aérospatial", "Une description", "assets/logo_exotrail_full.e32341e.png", "une.adresse@mail.com", "www.monsite.com"],
+  ["SpaceDreams", "Aérospatial", "Une description", "assets/SpaceDreamslogo.webp", "une.adresse@mail.com", "www.monsite.com"],
+  ["Venture", "Aérospatial", "Une description", "assets/VOS log.webp", "une.adress@mail.com", "www.monsite.com"],
+  ["U_Space", "Aérospatial", "Une description", "assets/Uspacelogo.webp", "une.adresse@mail.com", "www.monsite.com"],
+  ["Unseenlabs", "Aérospatial", "Une description", "assets/unseenlabslogo.svg", "une.adresse@mail.com", "www.monsite.com"],
+  ["Share my space", "Aérospatial", "Une description", "assets/Share MSPlogo.webp", "une.adresse@mail.com", "www.monsite.com"],
+  ["COMAT", "Aérospatial", "Une description", "assets/COMATlogo.webp", "une.adresse@mail.com", "www.monsite.com"]
 ];
 
 let sectors = [
-  ["IT", "planet1.png"],
   ["Aérospatial", "planet2.png"],
-  ["Internet provider", "planet3.png"],
-  ["Service provider", "planet4.png"],
-  ["Financial services", "planet0.png"],
+  [""]
 ];
 
 jQuery(".sidebar .logo").hide()
@@ -163,11 +165,11 @@ class Particle {
     ctx.drawImage(this.image, this.x-this.size, this.y-this.size, this.size*2, this.size*2);
     ctx.globalAlpha = 1;
     ctx.strokeText(this.industry[0], this.x-this.industry[0].length*2.25, this.y-this.size);
-    if (this.hovered()) {
-      var image = new Image();
-      image.src = this.industry[3];
-      ctx.drawImage(image, this.x-this.size, this.y-this.size, this.size*2, this.size*2);
-    }
+    // if (this.hovered()) {
+      // var image = new Image();
+      // image.src = this.industry[3];
+      // ctx.drawImage(image, this.x-this.size, this.y-this.size, this.size*2, this.size*2);
+    // }
   }
 }
 
@@ -317,7 +319,7 @@ function handleEvents() {
     var eventType = Math.floor(Math.random() * 3)
     console.log(eventType);
     if (eventType == 0) {
-      eventObjects.push(new Satellite(0));
+      eventObjects.push(new Satellite(Math.floor(Math.random()*2)));
     }
   }
 
