@@ -15,13 +15,13 @@ let company = [
   ["Banco Santander", "Financial services"],
   ["Assicurazioni Generali", "Financial services"],
   ["Crédit Agricole", "Financial services"],
-  ["Exotrails", "Aérospatiale", "Description", "assets/logo_exotrail_full.e32341e.png"],
-  ["SpaceDreams", "Aérospatiale", "Canart", "assets/SpaceDreamslogo.webp"]
+  ["Exotrails", "Aérospatial", "Description", "assets/logo_exotrail_full.e32341e.png"],
+  ["SpaceDreams", "Aérospatial", "Canart", "assets/SpaceDreamslogo.webp"]
 ];
 
 let sectors = [
   ["IT", "planet1.png"],
-  ["Aérospatiale", "planet2.png"],
+  ["Aérospatial", "planet2.png"],
   ["Internet provider", "planet3.png"],
   ["Service provider", "planet4.png"],
   ["Financial services", "planet0.png"],
@@ -187,7 +187,7 @@ class Star {
     this.y = -300 + Math.random() * (canvas.height+400);
     this.currentTransparency = 0;
     this.transparency = Math.random()*0.75;
-    this.size = Math.floor(Math.random() + 1);
+    this.size = Math.floor(Math.random()*1.5 + 1);
     this.life = Math.random() * 400 + 120;
     this.spd = Math.random()/4;
     this.spdY = Math.random()/4;
@@ -227,8 +227,8 @@ class Satellite {
   constructor(image) {
     this.size = 40;
     this.x = Math.random() < 0.5 ? -40-this.size*3:canvas.width+40;
-    this.y = Math.random() * canvas.height;
-    this.spd = Math.random() * 2 * -Math.sign(this.x)+2;
+    this.y = Math.random() * (canvas.height-this.size*2)+canvas.height+this.size;
+    this.spd = Math.random() * 1.25 * -Math.sign(this.x)+2;
     this.image = satelliteImages[image];
     this.dead = false;
   }
@@ -256,7 +256,7 @@ function handleParticles() {
       //if (true) {
         ctx.beginPath();
         ctx.strokeStyle = 'rgb(255, 255, 255)';
-        if (particles[i].transparent || particles[j].transparent) {
+        if (jQuery("#sector")[0].value != "") {
           ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)'
         }
         ctx.lineWidth = 0.25;
