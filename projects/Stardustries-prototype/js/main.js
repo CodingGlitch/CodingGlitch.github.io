@@ -4,18 +4,7 @@ $(document).ready( function () {
 console.log("██████╗ ██████╗ ██╗   ██╗██╗   ██╗███████╗\n██╔══██╗██╔══██╗██║   ██║╚██╗ ██╔╝██╔════╝\n██████╔╝██████╔╝██║   ██║ ╚████╔╝ ███████╗\n██╔═══╝ ██╔══██╗██║   ██║  ╚██╔╝  ╚════██║\n██║     ██║  ██║╚██████╔╝   ██║   ███████║\n╚═╝     ╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚══════╝")
 
 let company = [
-  ["Google", "IT"],
-  ["Apple", "IT"],
-  ["Orange", "Internet provider"],
-  ["SFR", "Service provider"],
-  ["ING", "Financial services"],
-  ["AXA", "Financial services"],
-  ["Allianz", "Financial services"],
-  ["BNP Paribas", "Financial services"],
-  ["Banco Santander", "Financial services"],
-  ["Assicurazioni Generali", "Financial services"],
-  ["Crédit Agricole", "Financial services"],
-  ["Exotrails", "Aérospatial", "Description", "assets/logo_exotrail_full.e32341e.png"],
+  ["Exotrails", "Aérospatial", "Description", "assets/logo_exotrail_full.e32341e.png", "l.addr@mail.com", "monsite.com"],
   ["SpaceDreams", "Aérospatial", "Canart", "assets/SpaceDreamslogo.webp"]
 ];
 
@@ -173,6 +162,7 @@ class Particle {
     }
     ctx.drawImage(this.image, this.x-this.size, this.y-this.size, this.size*2, this.size*2);
     ctx.globalAlpha = 1;
+    ctx.strokeText(this.industry[0], this.x-this.industry[0].length*2.25, this.y-this.size);
     if (this.hovered()) {
       var image = new Image();
       image.src = this.industry[3];
