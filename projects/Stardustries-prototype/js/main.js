@@ -224,9 +224,9 @@ for (var i = 0; i < 3; i++) {
 class Satellite {
   constructor(image) {
     this.size = 40;
-    this.x = Math.random() < 0.5 ? -40-this.size*3:canvas.width+40;
-    this.y = Math.random() * (canvas.height-this.size*2)+canvas.height+this.size;
-    this.spd = Math.random() * 1.25 * -Math.sign(this.x)+2;
+    this.x = -40-this.size*3;
+    this.y = Math.random() * (canvas.height-this.size*2)+(this.size*2);
+    this.spd = Math.random() * 1.25+2;
     this.image = satelliteImages[image];
     this.dead = false;
   }
@@ -320,11 +320,11 @@ let eventObjects = [];
 
 function handleEvents() {
 
-  if (Date.now()/1000 - eventCounter.getTime()/1000 > 15) {
+  if (Date.now()/1000 - eventCounter.getTime()/1000 > 10) {
     eventCounter.setTime(Date.now());
     var eventType = Math.floor(Math.random() * 3)
     console.log(eventType);
-    if (eventType == 0) {
+    if (eventType != 2) {
       eventObjects.push(new Satellite(Math.floor(Math.random()*2)));
     }
   }
