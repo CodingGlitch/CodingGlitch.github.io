@@ -167,7 +167,10 @@ class Particle {
     }
     ctx.drawImage(this.image, this.x-this.size, this.y-this.size, this.size*2, this.size*2);
     ctx.globalAlpha = 1;
-    ctx.strokeText(this.industry[0], this.x-this.industry[0].length*2.25, this.y-this.size);
+    ctx.font = "16px Arial";
+    ctx.beginPath();
+    ctx.fillStyle = 'rgba(255,255,255,1)';
+    ctx.fillText(this.industry[0], this.x-((this.industry[0].length + this.industry[0].length%2)*8)/2, this.y-this.size);
     // if (this.hovered()) {
       // var image = new Image();
       // image.src = this.industry[3];
