@@ -1,0 +1,173 @@
+/*------------------------------------------------------------------------------
+	WEB : page design
+------------------------------------------------------------------------------*/
+
+section > p {
+	font-size: 3vw;
+}
+
+header {
+	width: 90%;
+	height: 10 vh;
+	margin: 0px auto;
+	background-color: #00000077;
+}
+header h1 {
+	text-align: center;
+	margin: 0px auto;
+	font-size: 3vw;
+}
+
+nav ul {
+	background-color: #00000077;
+	padding-left: 10vw;
+}
+
+nav li {
+	display: inline-block;
+	width: 10vw;
+	padding: 0px 1vw;
+}
+nav a {
+	color: #FFFFFFCC;
+	font-style: normal;
+	text-decoration: none;
+	font-size: 2vw;
+}
+
+nav a:hover {
+	color: #FFFFFFAA;
+}
+
+nav a:active {
+	color: #00000066;
+}
+
+.current {
+	background-color: #00000066
+}
+
+aside ul {
+  padding-left: 8.5vw;
+
+}
+aside li {
+  display: inline-block;
+  vertical-align: top;
+  width: 15.5vw;
+  padding: 0.5vw;
+	background-color: #FFFFFF99;
+	height: 9.75vw;
+	margin-top: 1vw;
+	font-size: 1vw;
+}
+
+aside h2 {
+  font-size: 1.25vw;
+  color: #0033FF99;
+  text-align: center;
+}
+
+aside p {
+  text-align: center;
+}
+
+
+footer {
+	background-color: #00000099;
+}
+
+footer ul {
+	display: inline-block;
+	border-style: none none solid none;
+	border-color: #000000AA;
+	border-width: 2px;
+	width: 20vw;
+}
+
+footer li {
+	font-size: 0.75vw;
+}
+
+footer h2 {
+	color: #FFFFFF99;
+	font-size: 1vw;
+	width: 20vw;
+}
+
+.littleStar {
+	color: #00000088;
+	font-size: 0.8vw;
+}
+
+/*==============================
+	Layout
+==============================*/
+
+/* Body & Wrapper */
+.wrapper {
+	min-height: 100vh;
+	max-width: 1200px;
+	margin: 0 auto 0 auto;
+	padding: 1px;
+}
+
+
+
+
+
+/*==============================
+	Style
+==============================*/
+
+/* Set font */
+* {
+	font-family: 'Ubuntu', 'Arial', 'Helvetica', 'Palatino', sans-serif;
+}
+
+/* Body & Wrapper */
+body {
+	background-color: #E0E0E0;
+}
+.wrapper {
+	background-color: #F0F0F0;
+	padding: 0 10px;
+}
+
+
+
+
+
+/*==============================
+	Classes
+==============================*/
+
+
+
+
+
+/*==============================
+	Responsive design
+==============================*/
+
+/* Media query : mobile */
+@media (max-width: 600px) {
+
+
+}
+
+
+
+/* Media query : tablet */
+@media (min-width: 600px) and (max-width: 1200px) {
+
+
+}
+
+
+
+/* Media query : laptop */
+@media (min-width: 1200px) {
+
+
+}

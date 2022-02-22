@@ -1,0 +1,16 @@
+section article{
+  margin: 1vw auto;
+  background-color: #FFFFFFAA;
+}
+
+section article h2 {
+  font-size: 2vw;
+}
+
+section article p {
+  font-size: 1.5vw;
+}
+
+section article li {
+  font-size: 1vw;
+}

@@ -1,0 +1,15 @@
+section article{
+  background-color: #FFFFFFAA;
+  width: 80%;
+  margin: 0.5vw auto;
+}
+
+section article div {
+  display: inline-block;
+  width: 40vw;
+}
+
+section article img {
+  display: inline-block;
+  width: 20vw;
+}

@@ -1,0 +1,31 @@
+section article {
+  display: inline-block;
+  width: 22%;
+  padding-left: 2vw;
+  padding-right:2vw;
+  background-color: #FFFFFFAA;
+  height: 7vw;
+  vertical-align: top;
+  transition-duration: 500ms;
+  text-align: center;
+}
+
+section {
+  padding-left: 10vw;
+}
+
+section h2 {
+  color: #0033FF99;
+}
+
+
+section p {
+  font-size: 1vw;
+}
+
+section article:hover {
+  background-color: #00000088;
+  transition-duration: 500ms;
+  width:25%;
+  height: 8vw;
+}
