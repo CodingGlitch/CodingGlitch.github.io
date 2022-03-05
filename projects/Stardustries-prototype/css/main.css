@@ -1,7 +1,7 @@
 #mycanvas {
   position: absolute;
   background-color: black;
-  width: 80%;
+  width: 99.9%;
   height: 80%;
   top: 0;
   left: 0;
@@ -18,49 +18,15 @@ div {
   border-top-color: gray;
   top: 80%;
   left: 0;
-  width:80%;
+  width:99.9%;
   height: 19.9%;
   background-image: url("../assets/bottom_bar.png");
   background-size: cover;
 }
 
-.sidebar {
-  border-left-color: gray;
-  border-left-width: thin;
-  border-left-style: solid;
-  top:0;
-  left: 80%;
-  width: 20%;
-  height:100%;
-  background-image: url("../assets/side_bar.png");
-  background-size: cover;
-}
 
 h1 {
   color: white;
   text-align: center;
   font-size: 2vw;
-}
-
-.sidebar .logo {
-  width: 60%;
-  border-style: none;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2%;
-}
-
-.sidebar .sector {
-  color: white;
-  text-align: center;
-  font-size: 1.5vw;
-}
-
-.sidebar .description {
-  color: white;
-  font-size: 1vw;
-  text-align: center;
-  width: 80%;
-  margin-left: 10%;
 }

@@ -56,14 +56,21 @@ for (var i = 0; i < company.length; i++) {
 //Get the canvas
 const canvas = document.getElementById('mycanvas');
 const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth*0.8;
+canvas.width = window.innerWidth*0.999;
 canvas.height = window.innerHeight*0.8;
+
 let particles = [];
 
 let stars = [];
 
+let popups = [];
+
+let grabbed = "";
+
+let mouseMoved = false;
+
 window.addEventListener('resize', function (e) {
-  canvas.width = window.innerWidth*0.8;
+  canvas.width = window.innerWidth*0.999;
   canvas.height = window.innerHeight*0.8;
 });
 
@@ -85,18 +92,51 @@ function randomSign() {
 canvas.addEventListener('click', function (e) {
   mouse.x = e.x;
   mouse.y = e.y;
-  for (var i = 0; i < particles.length; i++) {
-    if (particles[i].hovered()) {
-      jQuery(".sidebar h1").html(particles[i].industry[0]);
-      jQuery(".sidebar .sector").html(particles[i].industry[1]);
-      jQuery(".sidebar .description").html(particles[i].industry[2]);
-      jQuery(".sidebar .logo")[0].src = particles[i].industry[3];
-      jQuery(".sidebar .logo").show();
+  var done = false;
+  if (grabbed != "") {
+    grabbed = "";
+    done = true;
+  }
+
+  for (var i = popups.length-1; i > -1; i--) {
+    if (popups[i].hovered() && !done) {
+      done = true;
+      if (popups[i].closing()) {
+        done = true;
+        popups.splice(i, 1);
+      }
     }
   }
+
+  for (var i = 0; i < particles.length; i++) {
+    if (particles[i].hovered() && !done) {
+      done = true;
+      var createNew = true;
+      for (var j = 0; j < popups.length; j++) {
+        if (popups[j].particle == particles[i]) {
+          createNew = false;
+          popups[j].x = popups[j].particle.x-popups[j].width/2;
+          popups[j].y = popups[j].particle.y-popups[j].height/2;
+        }
+      }
+      if (createNew) {
+        popups.push(new Popup(particles[i].x, particles[i].y, particles[i]));
+        popups[popups.length-1].x -= popups[popups.length-1].width/2;
+        popups[popups.length-1].y -= popups[popups.length-1].height/2;
+      }
+    }
+  }
+
+
+  grabbed = "";
 })
 
 canvas.addEventListener('mousemove', function(e) {
+  if (grabbed != "") {
+    grabbed.x += e.x-mouse.x;
+    grabbed.y += e.y-mouse.y;
+  }
+
   mouse.x = e.x;
   mouse.y = e.y;
   for (var i = 0; i < particles.length; i++) {
@@ -106,6 +146,101 @@ canvas.addEventListener('mousemove', function(e) {
     }
   }
 })
+
+canvas.addEventListener('mousedown', function(e) {
+  mouse.x = e.x;
+  mouse.y = e.y;
+  grabbed == "";
+  for (var i = 0; i < popups.length; i++) {
+    if (popups[i].hoverTopBar() && grabbed == "") {
+      grabbed = popups[i];
+      popups.splice(i, 1);
+      popups.push(grabbed);
+    }
+  }
+});
+
+class Popup {
+  constructor(x, y, particle) {
+    this.x = x;
+    this.y = y;
+    this.particle = particle;
+    this.lineWidth = particle.industry[4].length+4;
+    this.width = this.lineWidth*8+32;
+    this.lines = this.wrapText(particle.industry[2], this.lineWidth);
+    this.height = this.lineWidth*8+48;
+  }
+
+  wrapText(text, maxWidth) {
+    var words = text.split(' ');
+    var currentLine = "";
+    var finalLines = [];
+    while (words.length > 0) {
+      var tempLine = currentLine + " " + words[0];
+      if (tempLine.length > maxWidth) {
+        finalLines.push(currentLine);
+        currentLine = "";
+      }
+      else {
+        currentLine = currentLine + " " + words[0];
+        words.splice(0, 1);
+      }
+    }
+    if (currentLine.length != 0) {
+      finalLines.push(currentLine)
+    }
+    return finalLines;
+  }
+
+  hovered() {
+    if (mouse.x > this.x && mouse.x < this.x + this.width) {
+      if (mouse.y > this.y && mouse.y < this.y + this.height) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  hoverTopBar() {
+    if (mouse.x > this.x && mouse.x < this.x+this.width-16) {
+      if (mouse.y > this.y && mouse.y < this.y+24) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  closing() {
+    if (mouse.x > this.x+this.width-16 && mouse.x < this.x+this.width) {
+      if (mouse.y > this.y && mouse.y < this.y+16) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  draw() {
+    ctx.fillStyle = 'rgba(160, 160, 160, 0.9)';
+    ctx.beginPath();
+    ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.fillStyle = 'rgba(100, 100, 100, 1)';
+    ctx.beginPath();
+    ctx.fillRect(this.x, this.y, this.width, 20);
+    ctx.fillStyle = 'rgb(255, 0, 0)';
+    ctx.beginPath();
+    ctx.fillText("X", this.x+this.width-16, this.y+16);
+    ctx.fillStyle = 'rgb(255, 255, 255)';
+    ctx.beginPath();
+    ctx.fillText(this.particle.industry[0], this.x+(this.lineWidth/4)*16-(this.particle.industry[0].length/2-1)*8, this.y+16); //Why does it have to be THIS complicated to center text ?!?!
+    for (var i = 0; i < this.lines.length; i++) {
+      ctx.beginPath();
+      ctx.fillText(this.lines[i], this.x+(this.lineWidth/4)*8-(this.lines[i].length/4)*4, this.y+32+(16*i));
+    }
+    ctx.fillStyle = 'rgb(0, 200, 255)';
+    ctx.beginPath();
+    ctx.fillText(this.particle.industry[4], this.x, this.y+this.height-32);
+  }
+}
 
 
 class Particle {
@@ -338,6 +473,13 @@ function handleEvents() {
   }
 }
 
+
+function handlePopups() {
+  for (var i = 0; i < popups.length; i++) {
+    popups[i].draw();
+  }
+}
+
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   // ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
@@ -345,6 +487,7 @@ function animate() {
   handleStars();
   handleEvents();
   handleParticles();
+  handlePopups();
   requestAnimationFrame(animate);
 }
 
