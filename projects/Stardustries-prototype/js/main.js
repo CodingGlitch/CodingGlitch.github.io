@@ -4,13 +4,13 @@ $(document).ready( function () {
 console.log("██████╗ ██████╗ ██╗   ██╗██╗   ██╗███████╗\n██╔══██╗██╔══██╗██║   ██║╚██╗ ██╔╝██╔════╝\n██████╔╝██████╔╝██║   ██║ ╚████╔╝ ███████╗\n██╔═══╝ ██╔══██╗██║   ██║  ╚██╔╝  ╚════██║\n██║     ██║  ██║╚██████╔╝   ██║   ███████║\n╚═╝     ╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚══════╝")
 
 let company = [
-  ["Exotrails", "Secteur 1", "Une description", "assets/logo_exotrail_full.e32341e.png", "une.adresse@mail.com", "www.monsite.com"],
-  ["SpaceDreams", "Secteur 1", "Une description", "assets/SpaceDreamslogo.webp", "une.adresse@mail.com", "www.monsite.com"],
-  ["Venture", "Secteur 2", "Une description", "assets/VOS log.webp", "une.adress@mail.com", "www.monsite.com"],
-  ["U_Space", "Secteur 3", "Une description", "assets/Uspacelogo.webp", "une.adresse@mail.com", "www.monsite.com"],
-  ["Unseenlabs", "Secteur 4", "Une description", "assets/unseenlabslogo.svg", "une.adresse@mail.com", "www.monsite.com"],
-  ["Share my space", "Secteur 5", "Une description", "assets/Share MSPlogo.webp", "une.adresse@mail.com", "www.monsite.com"],
-  ["COMAT", "Secteur 2", "Une description", "assets/COMATlogo.webp", "une.adresse@mail.com", "www.monsite.com"]
+  ["Planet1", "Secteur 1", "Une description", "assets/logo_exotrail_full.e32341e.png", "une.adresse@mail.com", "www.monsite.com"],
+  ["Planet2", "Secteur 1", "Une description", "assets/SpaceDreamslogo.webp", "une.adresse@mail.com", "www.monsite.com"],
+  ["∆\|", "Secteur 2", "Une description", "assets/VOS log.webp", "une.adress@mail.com", "www.monsite.com"],
+  ["Test", "Secteur 3", "Une description", "assets/Uspacelogo.webp", "une.adresse@mail.com", "www.monsite.com"],
+  ["Planet4", "Secteur 4", "Une description", "assets/unseenlabslogo.svg", "une.adresse@mail.com", "www.monsite.com"],
+  ["Planet5", "Secteur 5", "Une description", "assets/Share MSPlogo.webp", "une.adresse@mail.com", "www.monsite.com"],
+  ["Planet6", "Secteur 2", "Une description", "assets/COMATlogo.webp", "une.adresse@mail.com", "www.monsite.com"]
 ];
 
 let sectors = [
