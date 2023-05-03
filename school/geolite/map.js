@@ -30,7 +30,7 @@ console.log("\n ██████╗ ██╗     ██╗██████�
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
-  const marker = L.marker([latitude, longitude]).addTo(map);
+  const marker = L.marker(L.latLng(parseFloat(latitude), parseFloat(longitude))).addTo(map);
 
   //Update the location by generating a new url and redirecting
   function newLoc() {
@@ -68,7 +68,7 @@ console.log("\n ██████╗ ██╗     ██╗██████�
       }
       var latlng = L.latLng(latitude, longitude);
       map.flyTo(latlng, 13);
-      marker.setLatLng(latitude, longitude)
+      marker.setLatLng(latlng);
     }
     else {
       jQuery("body > p").addClass('show');
