@@ -3,3 +3,5 @@
 Just my Github pages. Nothing fancy here.
 
 It mostly just contains links and a few things about my projects.
+
+Made using W3.CSS
